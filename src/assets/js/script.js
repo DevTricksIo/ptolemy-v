@@ -6,9 +6,9 @@ const quoteReference = document.querySelector('.quote-reference');
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
-        window.location.replace('/?lang=en');
-    }
+    // if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+    //     window.location.replace('/?lang=en');
+    // }
 
     let lang = detectLanguageFromURL();
 
