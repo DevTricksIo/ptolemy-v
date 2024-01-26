@@ -63,18 +63,18 @@ function detectLanguageFromURL() {
     }
 }
 
-languageSelect.addEventListener('change', () => {
-    const selectedLanguage = languageSelect.value;
+// languageSelect.addEventListener('change', () => {
+//     const selectedLanguage = languageSelect.value;
 
-    const codes = translationsArray.map(i => i.code);
+//     const codes = translationsArray.map(i => i.code);
 
-    if (codes.includes(selectedLanguage)) {
+//     if (codes.includes(selectedLanguage)) {
 
-        const currentUrl = window.location.href;
-        const url = new URL(currentUrl);
-        url.searchParams.set('lang', selectedLanguage);
-        const newUrl = url.toString();
+//         const currentUrl = window.location.href;
+//         const url = new URL(currentUrl);
+//         url.searchParams.set('lang', selectedLanguage);
+//         const newUrl = url.toString();
 
-        window.location.href = newUrl;
-    }
-});
+//         window.location.href = newUrl;
+//     }
+// });
