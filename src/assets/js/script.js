@@ -1,8 +1,13 @@
 const translationsArray = Object.values(translations);
 
 const languageSelect = document.getElementById('language-select');
+
+const quoteContainer = document.getElementById('quote-container');
+
+const img = document.querySelector("quote-container img");
+
 const quoteText = document.querySelector('.quote-text');
-const quoteReference = document.querySelector('.quote-reference');
+const quoteReference = document.querySelector('#quote-container footer');
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -10,21 +15,26 @@ document.addEventListener('DOMContentLoaded', function () {
     //     window.location.replace('/?lang=en');
     // }
 
-    let lang = detectLanguageFromURL();
+    let langtag = detectLanguageFromURL();
 
-    document.title = translations[lang].title;
-    document.documentElement.setAttribute("lang", lang);
+    document.title = translations[langtag].title;
+    document.documentElement.setAttribute("lang", langtag);
 
-    quoteText.textContent = translations[lang].quote;
-    quoteReference.textContent = translations[lang].reference;
+    quoteText.textContent = translations[langtag].quote;
+    quoteReference.textContent = translations[langtag].reference;
 
     populateOptions();
-    languageSelect.value = lang;
+    languageSelect.value = langtag;
 
 
-    if(translations[lang].direction !== 'ltr'){
-        document.body.style.writingMode = translations[lang].direction;
-    } 
+    if (translations[langtag].direction.includes('vertical')) {
+        document.body.classList.add('vertical-layout');
+    }
+
+    document.body.classList.add(translations[langtag].direction);
+
+
+    changeFont(langtag);
 });
 
 function populateOptions() {
@@ -33,8 +43,8 @@ function populateOptions() {
 
     translationsArray.forEach(function (language) {
         var optionElement = document.createElement("option");
-        optionElement.value = language.code;
-        optionElement.textContent = language.lang;
+        optionElement.value = language.langtag;
+        optionElement.textContent = `${language.langEnglish} - ${language.lang}`;
         selectElement.appendChild(optionElement);
     });
 }
@@ -63,18 +73,56 @@ function detectLanguageFromURL() {
     }
 }
 
-// languageSelect.addEventListener('change', () => {
-//     const selectedLanguage = languageSelect.value;
+languageSelect.addEventListener('change', () => {
+    const selectedLanguage = languageSelect.value;
 
-//     const codes = translationsArray.map(i => i.code);
+    const langtags = translationsArray.map(i => i.langtag);
 
-//     if (codes.includes(selectedLanguage)) {
+    if (langtags.includes(selectedLanguage)) {
 
-//         const currentUrl = window.location.href;
-//         const url = new URL(currentUrl);
-//         url.searchParams.set('lang', selectedLanguage);
-//         const newUrl = url.toString();
+        const currentUrl = window.location.href;
+        const url = new URL(currentUrl);
+        url.searchParams.set('lang', selectedLanguage);
+        const newUrl = url.toString();
 
-//         window.location.href = newUrl;
-//     }
-// });
+        window.location.href = newUrl;
+    }
+});
+
+function changeFont(langtag) {
+
+    if (translations[langtag].font && translations[langtag].font.sourceType === 'url') {
+
+        var link = document.createElement("link");
+
+        // Atribuir os atributos
+        link.rel = "stylesheet";
+        link.type = "text/css";
+        link.href = translations[langtag].font.url;
+
+        // Inserir o elemento no cabeçalho
+        document.head.appendChild(link);
+
+        if (translations[langtag].fontFamily) {
+            quoteContainer.style.fontFamily = translations[langtag].fontFamily;
+        }
+
+
+    }
+}
+
+function getRandLanguageKey() {
+    // Obter todas as chaves (códigos de língua) do objeto translations
+    var keys = Object.keys(translations);
+
+    // Gerar um número aleatório entre 0 e o número de chaves - 1
+    var randIndex = Math.floor(Math.random() * keys.length);
+
+    // Usar o número aleatório para obter uma chave aleatória
+    var randKey = keys[randIndex];
+
+    // Retornar a chave aleatória
+    alert(randKey)
+    return randKey;
+
+}

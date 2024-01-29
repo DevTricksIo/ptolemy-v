@@ -1,26 +1,25 @@
 body {
-    background: linear-gradient(135deg, 
-        #F1E3C1 0%, 
-        #E9D2A7 10%, 
-        #DAC19A 20%, 
-        #CBB08B 30%, 
-        #BB9F7D 40%, 
-        #AC8E6E 50%, 
-        #9D7D60 60%, 
-        #8E6C51 70%, 
-        #7F5B43 80%, 
-        #705A49 90%, 
-        #665C49 100%
-    );
+    background: linear-gradient(90deg,
+            #F1E3C1 0%,
+            #E9D2A7 10%,
+            #DAC19A 20%,
+            #CBB08B 30%,
+            #BB9F7D 40%,
+            #AC8E6E 50%,
+            #9D7D60 60%,
+            #8E6C51 70%,
+            #7F5B43 80%,
+            #705A49 90%,
+            #665C49 100%);
     background-size: 200% 200%;
 
-    font-family: 
+    font-family:
         -apple-system,
         BlinkMacSystemFont,
         'Segoe UI',
-        Roboto, 
+        Roboto,
         'Helvetica Neue',
-        Arial, 
+        Arial,
         sans-serif;
     margin: 0;
     padding: 0;
@@ -31,23 +30,79 @@ body {
     padding: 10px;
 }
 
-.quote-container {
+#quote-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-wrap: wrap;
     padding: 50px;
 }
 
-.quote-text {
+#quote-container blockquote,
+#quote-container img {
+    flex: 1;
+}
+
+#quote-container blockquote .quote-text {
     font-size: 24px;
-    text-align: right;
+    
 }
 
-.quote-reference {
-    text-align: right;
-}
 
-.quote-container img{
-    width: 250px;
+#quote-container img {
+    width: 150px;
     height: auto;
+}
+
+.vertical-layout,
+.vertical-layout #quote-container {
+    margin: 0;
+    padding: 0;
+}
+
+
+.vertical-layout #quote-container {
+    height: 500px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.vertical-layout #quote-container blockquote {
+    display: flex;
+}
+
+.vertical-rl #quote-container blockquote {
+    flex-direction: column-reverse;
+}
+
+.vertical-rl #quote {
+    writing-mode: vertical-lr;
+}
+
+.vertical-lr #quote {
+    writing-mode: vertical-lr;
+}
+
+@media (max-width: 600px) {
+
+    #quote-container blockquote,
+    #quote-container #image {
+        flex-basis: 100%;
+    }
+
+    #quote-container #image {
+        margin: 0 auto;
+        ;
+    }
+
+    #quote-container {
+        padding: 0;
+    }
+
+
+    #quote-container #image {
+        text-align: center;
+    }
+
 }

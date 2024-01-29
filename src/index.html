@@ -6,23 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>a</title>
     <link rel="stylesheet" href="./assets/css/style.css">
-
+    <link rel="icon" href="./assets/images/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
-    <div class="background-container">
+    <div class="container">
         <div class="language-selector">
             <select id="language-select">
             </select>
+            <button onclick="getRandLanguageKey()">Random </button>
         </div>
-        <div class="quote-container">
-            <blockquote id="quote">
+        <div id="quote-container">
+            <blockquote id="quote" class="blockquote">
                 <p class="quote-text">A</p>
-                <footer class="quote-reference">B</footer>
+                <footer> B </footer>
             </blockquote>
-            <img src="./assets/images/375px-PtolemyV-SilverTetradrachm-BackgroundKnockedOut-ROM-Dec29-07.png">
+            <div id="image">
+                <img src="./assets/images/375px-PtolemyV-SilverTetradrachm-BackgroundKnockedOut-ROM-Dec29-07.png">
+            </div>
         </div>
     </div>
+
     <script src="./assets/js/translations.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>
