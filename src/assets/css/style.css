@@ -76,7 +76,8 @@ body {
     flex-direction: column-reverse;
 }
 
-.vertical-rl #quote {
+.vertical-rl #quote, 
+.vertical-rl button {
     writing-mode: vertical-rl;
 }
 

@@ -126,3 +126,13 @@ function getRandLanguageKey() {
     return randKey;
 
 }
+
+
+
+function redirectToLangTagSite(langTag) {
+    if (langTag) {
+        let currentUrl = window.location.href;
+        currentUrl = currentUrl.replace(/\/[a-zA-Z-]+\/$/, '/');
+        window.location.href = currentUrl + langTag + '/';
+    }
+}

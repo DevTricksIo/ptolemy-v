@@ -8,21 +8,20 @@
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
     <link rel="icon" href="{{ '/assets/images/favicon.ico' | relative_url }}" type="image/x-icon">
 
-    <!-- hreflang -->
     <link rel="alternate" hreflang="x-default" href="{{site.url}}/en/">
 
-    {% for post in site.posts %} 
+    {% for post in site.posts %}
     {% if post.langtag %}
     <link rel="alternate" hreflang="{{ post.langtag }}" href="{{site.url}}/{{post.langtag}}/" />
     {% endif %}
     {% endfor %}
-    <!-- end hreflang-->
+    
 </head>
 
 <body class="{{ page.direction }} {% if page.direction contains 'vertical' %} vertical-layout {% endif %} ">
     <div class="container">
         <div class="language-selector">
-            <select id="language-select" onchange="redirectToLangTagSite(this.value)">
+            <select id="language-select" aria-label=" {{ page.selectAriaLabel }}" onchange="redirectToLangTagSite(this.value)">
                 {% for post in site.posts %}
                 {% if post.langtag and post.englishLang and post.lang %}
                 <option value="{{ post.langtag }}" {% if page.langtag==post.langtag %}selected{% endif %}>
@@ -31,7 +30,7 @@
                 {% endif %}
                 {% endfor %}
             </select>
-            <button onclick="getRandLanguageKey()">Random </button>
+            <button class="{{ page.direction }}" type="button" onclick="getRandLanguageKey()">{{ page.buttonRandom }}</button>
         </div>
         <div id="quote-container">
             <blockquote id="quote" class="blockquote">
@@ -39,28 +38,12 @@
                 <footer> {{ page.reference }} </footer>
             </blockquote>
             <div id="image">
-                <img
-                    src="{{ '/assets/images/375px-PtolemyV-SilverTetradrachm-BackgroundKnockedOut-ROM-Dec29-07.png' | relative_url }} ">
+                <img src="{{ '/assets/images/375px-PtolemyV-SilverTetradrachm-BackgroundKnockedOut-ROM-Dec29-07.png' | relative_url }} "
+                    alt="{{page.imageAlt}}">
             </div>
         </div>
     </div>
-
-    <!-- <script src="./assets/js/translations.js"></script>
-    <script src="./assets/js/script.js"></script> -->
-    <!-- <script src="{{ '/assets/js/script.js' | relative_url }}"></script> -->
-    <script>
-        function redirectToLangTagSite(langTag) {
-            if (langTag) {
-                let currentUrl = window.location.href;
-                currentUrl = currentUrl.replace(/\/[a-zA-Z-]+\/$/, '/');
-                window.location.href = currentUrl + langTag + '/';
-            }
-        }
-    </script>
+    <script src="{{ '/assets/js/script.js' | relative_url }}"></script>
 </body>
 
 </html>
-
-
-
-<!-- <img src="{{ '/assets/images/image.jpg' | relative_url }}" alt="Descrição da imagem"> -->
