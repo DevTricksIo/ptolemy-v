@@ -38,6 +38,8 @@ jobs:
           JEKYLL_ENV: production
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
+        with:
+          path: src/_site  # Modificado para apontar para o diretório _site correto
 
   deploy:
     environment:
