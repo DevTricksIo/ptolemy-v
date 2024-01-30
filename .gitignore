@@ -1,1 +1,37 @@
-src/assets/js/translations-beckup.js
+# Jekyll Cache Folder within src/
+src/.jekyll-cache/
+src/.jekyll-metadata
+
+# User Configuration Folder within src/
+src/.sass-cache/
+src/.jekyll-cache/
+src/.jekyll-metadata
+
+# Operating System-Specific Files (global)
+.DS_Store
+Thumbs.db
+
+# Bundler Dependencies Folder within src/
+src/.bundle/
+src/vendor/
+src/vendor/bundle
+
+# Environment Files within src/
+src/.env
+
+# Node.js Dependencies within src/
+src/node_modules/
+
+# Node.js Build Folder within src/
+src/dist/
+
+# Backup Files, Swap, etc. (global)
+*~
+*.swp
+*.tmp
+*.bak
+*.sublime*
+*code-workspace
+
+# Backup File for Translations in JavaScript within src/
+src/src/assets/js/translations-backup.js
