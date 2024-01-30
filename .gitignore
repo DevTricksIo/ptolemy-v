@@ -1,23 +1,22 @@
-# Jekyll Cache Folder within src/
-src/.jekyll-cache/
-src/.jekyll-metadata
+_site
 
-# User Configuration Folder within src/
-src/.sass-cache/
-src/.jekyll-cache/
-src/.jekyll-metadata
+# Jekyll Cache
+.jekyll-cache/
+.jekyll-metadata
+
+# User Configuration
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
 
 # Operating System-Specific Files (global)
 .DS_Store
 Thumbs.db
 
 # Bundler Dependencies Folder within src/
-src/.bundle/
+.bundle/
 src/vendor/
 src/vendor/bundle
-
-# Environment Files within src/
-src/.env
 
 # Node.js Dependencies within src/
 src/node_modules/
