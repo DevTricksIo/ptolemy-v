@@ -10,9 +10,9 @@
 
     <link rel="alternate" hreflang="x-default" href="{{site.url}}/en/">
 
-    {% for post in site.posts %}
-    {% if post.langtag %}
-    <link rel="alternate" hreflang="{{ post.langtag }}" href="{{site.url}}/{{post.langtag}}/" />
+    {% for transl in site.translations %}
+    {% if transl.langtag %}
+    <link rel="alternate" hreflang="{{ transl.langtag }}" href="{{site.url}}/{{transl.langtag}}/" />
     {% endif %}
     {% endfor %}
     
@@ -22,10 +22,10 @@
     <div class="container">
         <div class="language-selector">
             <select id="language-select" aria-label=" {{ page.selectAriaLabel }}" onchange="redirectToLangTagSite(this.value)">
-                {% for post in site.posts %}
-                {% if post.langtag and post.englishLang and post.lang %}
-                <option value="{{ post.langtag }}" {% if page.langtag==post.langtag %}selected{% endif %}>
-                    {{ post.englishLang }} - {{ post.lang }}
+                {% for transl in site.translations %}
+                {% if transl.langtag and transl.englishLang and transl.lang %}
+                <option value="{{ transl.langtag }}" {% if page.langtag==transl.langtag %}selected{% endif %}>
+                    {{ transl.englishLang }} - {{ transl.lang }}
                 </option>
                 {% endif %}
                 {% endfor %}
