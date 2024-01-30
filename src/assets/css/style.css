@@ -43,7 +43,7 @@ body {
 
 #quote-container blockquote .quote-text {
     font-size: 24px;
-    
+
 }
 
 
@@ -76,9 +76,14 @@ body {
     flex-direction: column-reverse;
 }
 
-.vertical-rl #quote, 
+.vertical-rl #quote,
 .vertical-rl button {
     writing-mode: vertical-rl;
+}
+
+.rtl #quote,
+.rtl button {
+    direction: rtl;
 }
 
 .vertical-lr #quote {
