@@ -1,7 +1,7 @@
 ---
 layout: quote
 permalink: /sr-latn/
-langtag: sr-Latn
+langtag: sr-latn
 type: modern
 script: Latn
 langName: Srpski

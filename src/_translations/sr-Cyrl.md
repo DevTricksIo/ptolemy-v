@@ -1,7 +1,7 @@
 ---
 layout: quote
 permalink: /sr-cyrl/
-langtag: sr-Cyrl
+langtag: sr-cyrl
 type: modern
 script: Cyrl
 langName: Српски
