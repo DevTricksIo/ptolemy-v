@@ -21,11 +21,11 @@
 <body class="{{ page.direction }} {% if page.direction contains 'vertical' %} vertical-layout {% endif %} ">
     <div class="container">
         <div class="language-selector">
-            <select id="language-select" aria-label=" {{ page.selectAriaLabel }}" onchange="redirectToLangTagSite(this.value)">
+            <select id="language-select" aria-label="{{ page.selectAriaLabel }}" onchange="redirectToLangTagSite(this.value)">
                 {% for transl in site.translations %}
-                {% if transl.langtag and transl.englishLang and transl.lang %}
+                {% if transl.langtag and transl.englishLangName and transl.langName %}
                 <option value="{{ transl.langtag }}" {% if page.langtag==transl.langtag %}selected{% endif %}>
-                    {{ transl.englishLang }} - {{ transl.lang }}
+                    {{ transl.englishLangName }} - {{ transl.langName }}
                 </option>
                 {% endif %}
                 {% endfor %}
@@ -34,8 +34,8 @@
         </div>
         <div id="quote-container">
             <blockquote id="quote" class="blockquote">
-                <p class="quote-text"> {{ page.quote }}</p>
-                <footer> {{ page.reference }} </footer>
+                <p class="quote-text">{{ page.quote }}</p>
+                <footer>{{ page.reference }}</footer>
             </blockquote>
             <div id="image">
                 <img src="{{ '/assets/images/375px-PtolemyV-SilverTetradrachm-BackgroundKnockedOut-ROM-Dec29-07.png' | relative_url }} "
