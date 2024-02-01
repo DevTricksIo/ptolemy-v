@@ -15,13 +15,14 @@
     <link rel="alternate" hreflang="{{ transl.langtag }}" href="{{site.url}}/{{transl.langtag}}/" />
     {% endif %}
     {% endfor %}
-    
+
 </head>
 
 <body class="{{ page.direction }} {% if page.direction contains 'vertical' %} vertical-layout {% endif %} ">
     <div class="container">
         <div class="language-selector">
-            <select id="language-select" aria-label="{{ page.selectAriaLabel }}" onchange="redirectToLangTagSite(this.value)">
+            <select id="language-select" aria-label="{{ page.selectAriaLabel }}"
+                onchange="redirectToLangTagSite(this.value)">
                 {% for transl in site.translations %}
                 {% if transl.langtag and transl.englishLangName and transl.langName %}
                 <option value="{{ transl.langtag }}" {% if page.langtag==transl.langtag %}selected{% endif %}>
@@ -30,7 +31,8 @@
                 {% endif %}
                 {% endfor %}
             </select>
-            <button class="{{ page.direction }}" type="button" onclick="goToRandomLanguagePage()">{{ page.buttonRandom }}</button>
+            <button class="{{ page.direction }}" type="button" onclick="goToRandomLanguagePage()">{{ page.buttonRandom
+                }}</button>
         </div>
         <div id="quote-container">
             <blockquote id="quote" class="blockquote">
